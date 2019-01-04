@@ -1,0 +1,62 @@
+version:             0.0.0.1
+synopsis:            Strudel programming language.
+description: >
+  My go along pie lang implementation from The Little Typer.
+license:             BSD3
+github:              jkopanski/strudel
+author:              Jakub Kopański <jkopanski@protonmail.com>
+maintainer:          Jakub Kopański <jkopanski@protonmail.com>
+copyright:           Copyright (c) 2018 Jakub Kopański
+category:            Compiler, Language
+extra-source-files:
+  - README.md
+
+default-extensions:
+  - ApplicativeDo
+  - DeriveFunctor
+  - DeriveTraversable
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - LambdaCase
+  - OverloadedStrings
+  - StandaloneDeriving
+
+ghc-options:         -Wall -Werror
+
+dependencies:
+  - base >= 4.11 && < 10
+  - megaparsec
+  - parser-combinators
+  - prettyprinter
+  - prettyprinter-ansi-terminal
+  - text
+
+library:
+  source-dirs:        src
+  #dependencies:
+
+executables:
+  strudel:
+    main:             Main.hs
+    source-dirs:      strudel
+    dependencies:
+      - optparse-applicative
+    ghc-options:
+      -Wall
+      -Werror
+      -rtsopts
+      -threaded
+
+# tests:
+#   test:
+#     main:             Tests.hs
+#     source-dirs:
+#       - src
+#       - tests
+
+#     dependencies:
+#       - hspec
+#       - hspec-megaparsec
+#       - tasty
+#       - tasty-hspec
+#       - tasty-hunit
